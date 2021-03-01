@@ -15,7 +15,7 @@ $dir_tags = "$env:USERPROFILE\Tags\"
 
 
 # Se realiza el import
-$import = Import-Clixml -Path $dir_tags
+$import = Import-Clixml -Path $dir_tags\tags.xml
 # Se prepara listas de Categorias y Tags
 $categoryList = $import[0]
 $tagList = $import[1]
@@ -48,3 +48,5 @@ foreach ($tag in $tagList) {
         -Server $server `
     | Out-Null
 }
+
+Disconnect-VIServer * -Force
