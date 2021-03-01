@@ -11,7 +11,7 @@ catch {
 }#Fin del Catch
 
 # Crea directorio para las xml de las tags
-$dir_tags = "$env:USERPROFILE\Tags\"
+$dir_tags = "$env:USERPROFILE\Tags"
 mkdir $dir_tags
 
 
@@ -23,7 +23,7 @@ $tagList = Get-Tag -Server $server
 # Se crea lista con categorias y tags para exportarlas
 $export = @($categoryList, $tagList)
 # Se realiza export
-Export-Clixml -InputObject $export -Path $dir_tags
+Export-Clixml -InputObject $export -Path $dir_tags\tags.xml
 
 
 Disconnect-VIServer * -Force
